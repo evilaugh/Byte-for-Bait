@@ -1,0 +1,34 @@
+{
+  "id": "3183c1f7-e500-49d7-aa7a-9933f61234f2",
+  "parentId": "7fdf014a-ebd0-4dde-b26f-c8940bc5aa6a",
+  "rootParentId": "7fdf014a-ebd0-4dde-b26f-c8940bc5aa6a",
+  "name": "Mid - yes",
+  "auto": true,
+  "contexts": [
+    "Mid-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "Mid.Mid-yes",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": "We are using Machine Learning Technique for fire detection, CNN for smoke detection and Twilio for SMS."
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": []
+}
