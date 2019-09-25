@@ -21,13 +21,13 @@ app = Flask(__name__)
 
 #data part
 
-title_data = ['null' , 'F1', 'F2', 'F3', 'F4', 'Number of Trees Burned Over The Year', 'User Reports vs Validation', 'F7']
+title_data = ['null' , 'F1', 'F2', 'F3', 'F4', 'Number of Trees Burned Over The Year', 'User Reports vs Validation', 'Top Vulnerable Country']
 
 data_entry = ['data_element1', 'data_element2', 'data_element3', 'data_element4']
 
 f5 = [2728, 823, 1621, 1863, 2483, 2975, 3495, 4247 , 6741 , 5248 , 4639 , 3146]
 
-f7 = ['F7_Title1', 'F7_Title2', 'F7_Title3', 'F7_Title4', 'F7_Title5']
+f7 = ['Siberia', 'Portugal', 'Nigeria', 'Madagascar', 'Brazil']
 
 start_coords = [13.148, 77.611]
 
@@ -64,7 +64,9 @@ def index():
     return render_template('index.html' , data = title_data , f5 = f5 , f7 = f7 , data_entry = data_entry , circle = circle)
 
 
-
+@app.route('/bot')
+def bot():
+    return render_template('bot.html')
 
 
 @app.route('/form')
