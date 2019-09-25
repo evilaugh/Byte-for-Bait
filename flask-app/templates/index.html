@@ -21,7 +21,7 @@
                   <hr class="sidebar-divider my-0">
                   <ul class="nav navbar-nav text-light" id="accordionSidebar">
                       <li class="nav-item" role="presentation"><a class="nav-link active" href="{{ url_for('map') }}"><i class="fas fa-tachometer-alt"></i><span>Map</span></a></li>
-                      <li class="nav-item" role="presentation"><a class="nav-link active" href="/index.html"><i class="fas fa-tachometer-alt"></i><span>Entry 2</span></a></li>
+                      <li class="nav-item" role="presentation"><a class="nav-link active" href="{{ url_for('form') }}"><i class="fas fa-tachometer-alt"></i><span>Form</span></a></li>
                       <li class="nav-item" role="presentation"><a class="nav-link active" href="/index.html"><i class="fas fa-tachometer-alt"></i><span>Entry 3</span></a></li>
                       <li class="nav-item" role="presentation"><a class="nav-link active" href="/index.html"><i class="fas fa-tachometer-alt"></i><span>Entry 4</span></a></li>
                   </ul>
@@ -31,12 +31,12 @@
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-                  <h1>Welcome to OUR APP</h1>
+                  <h1>Dashboard</h1>
                 </nav>
             <div class="container-fluid">
                 <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                    <h3 class="text-dark mb-0">Dashboard</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa- fa-sm text-white-50"></i>&nbsp; Demo Walla Button</a></div>
-                <div class="row">
+                    <h3 class="text-dark mb-0">Forest Fire at various Location</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa- fa-sm text-white-50"></i>&nbsp; Demo Walla Button</a></div>
+                <!-- <div class="row">
                     <div class="col-md-6 col-xl-3 mb-4">
                         <div class="card shadow border-left-primary py-2">
                             <div class="card-body">
@@ -98,25 +98,17 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
+                <div class="row">
+
+
+
+                  <iframe src="d3js1" width="1200" height="500" frameBorder="0" id="iFrame1" ></iframe>
+
+                  </div>
                 <!-- Start: Chart -->
                 <div class="row">
-                    <div class="col-lg-7 col-xl-8">
-                        <div class="card shadow mb-4">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h6 class="text-primary font-weight-bold m-0">{{ data[5] }}</h6>
-                                <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
-                                    <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"
-                                        role="menu">
-                                        <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" role="presentation" href="#">&nbsp;Action</a><a class="dropdown-item" role="presentation" href="#">&nbsp;Another action</a>
-                                        <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="#">&nbsp;Something else here</a></div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-area"><canvas data-bs-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Earnings&quot;,&quot;fill&quot;:true,&quot;data&quot;:[ {% for i in range(f5|length) %} &quot;{{ f5[i] }}&quot;, {% endfor %} &quot;{{ f5[f5|length ] }}&quot; ],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgba(78, 115, 223, 1)&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}]}}}"></canvas></div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="col-lg-5 col-xl-4">
                         <div class="card shadow mb-4">
                             <div class="card-header d-flex justify-content-between align-items-center">
@@ -129,14 +121,41 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div class="chart-area"><canvas data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Direct&quot;,&quot;Social&quot;,&quot;Referral&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;50&quot;,&quot;30&quot;,&quot;15&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas></div>
+                                <div class="chart-area"><canvas data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;True Positives&quot;,&quot;False Positives&quot;,&quot;False Negatives&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;{{circle[0]}}&quot;,&quot;{{circle[1]}}&quot;,&quot;{{circle[2]}}&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas></div>
                                 <div
-                                    class="text-center small mt-4"><span class="mr-2"><i class="fas fa-circle text-primary"></i>&nbsp;Direct</span><span class="mr-2"><i class="fas fa-circle text-success"></i>&nbsp;Social</span><span class="mr-2"><i class="fas fa-circle text-info"></i>&nbsp;Refferal</span></div>
+                                    class="text-center small mt-4"><span class="mr-2"><i class="fas fa-circle text-primary"></i>&nbsp;True Positives</span><span class="mr-2"><i class="fas fa-circle text-success"></i>&nbsp;False Positives</span><span class="mr-2"><i class="fas fa-circle text-info"></i>&nbsp;False Negative</span></div>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-7 col-xl-8">
+                    <div class="card shadow mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h6 class="text-primary font-weight-bold m-0">{{ data[5] }}</h6>
+                            <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"
+                                    role="menu">
+                                    <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" role="presentation" href="#">&nbsp;Action</a><a class="dropdown-item" role="presentation" href="#">&nbsp;Another action</a>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="#">&nbsp;Something else here</a></div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-area"><canvas data-bs-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;,&quot;Sep&quot;,&quot;Oct&quot;,&quot;Nov&quot;,&quot;Dec&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Trees Burned&quot;,&quot;fill&quot;:true,&quot;data&quot;:[ {% for i in range(f5|length) %} &quot;{{ f5[i] }}&quot;, {% endfor %} &quot;{{ f5[f5|length ] }}&quot; ],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgba(78, 115, 223, 1)&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}]}}}"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <!-- End: Chart -->
+
+                <!-- Start: Chart -->
+
+            <!-- End: Chart -->
+
+
+
+
+
+
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="card shadow mb-4">
@@ -166,7 +185,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card shadow mb-4">
+                    <!-- <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="text-primary font-weight-bold m-0">Todo List</h6>
                         </div>
@@ -200,9 +219,9 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
                 <div class="col">
-                    <div class="row">
+                    <!-- <div class="row"> -->
                         <div class="col-lg-6 mb-4">
                             <div class="card text-white bg-primary shadow">
                                 <div class="card-body">
@@ -211,14 +230,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-6 mb-4"><a href="www.google.com">
                             <div class="card text-white bg-success shadow">
                                 <div class="card-body">
                                     <p class="m-0">Success</p>
                                     <p class="text-white-50 small m-0">#1cc88a</p>
                                 </div>
 
-                            </div>
+                            </div></a>
                         </div>
                         <div class="col-lg-6 mb-4">
                             <div class="card text-white bg-info shadow">
@@ -252,8 +271,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
+
             </div>
         </div>
     </div>
@@ -268,6 +288,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="static/assets/js/script.min.js?h=5f9b75209a5bec2eae9db1b514298205"></script>
+
+    <script type="application/javascript">
+
+    function resizeIFrameToFitContent( iFrame ) {
+
+        iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
+        iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+    }
+
+    window.addEventListener('DOMContentLoaded', function(e) {
+
+        var iFrame = document.getElementById( 'iFrame1' );
+        resizeIFrameToFitContent( iFrame );
+
+        // or, to resize all iframes:
+        var iframes = document.querySelectorAll("iframe");
+        for( var i = 0; i < iframes.length; i++) {
+            resizeIFrameToFitContent( iframes[i] );
+        }
+    } );
+
+    </script>
+
 </body>
 
 </html>
