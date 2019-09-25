@@ -63,6 +63,12 @@ def geo_search(coordinates):
 def index():
     return render_template('index.html' , data = title_data , f5 = f5 , f7 = f7 , data_entry = data_entry , circle = circle)
 
+@app.route('/phone')
+def phone():
+    return render_template('phone.html' , data = title_data , f5 = f5 , f7 = f7 , data_entry = data_entry , circle = circle)
+
+
+
 
 @app.route('/bot')
 def bot():
