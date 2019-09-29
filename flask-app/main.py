@@ -25,7 +25,7 @@ title_data = ['null' , 'F1', 'F2', 'F3', 'F4', 'Number of Trees Burned Over The 
 
 data_entry = ['data_element1', 'data_element2', 'data_element3', 'data_element4']
 
-f5 = [2728, 823, 1621, 1863, 2483, 2975, 3495, 4247 , 6741 , 5248 , 4639 , 3146]
+f5 = [2728, 823, 1621, 1863, 2483, 2975, 3495 , 6741 ,  5248 ] #4247 , 4639 , 3146]
 
 f7 = ['Siberia', 'Portugal', 'Nigeria', 'Madagascar', 'Brazil']
 
