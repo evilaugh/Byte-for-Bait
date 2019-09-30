@@ -88,7 +88,7 @@ class _ChatPageState extends State<ChatPage> {
   void _dialogFlowResponse(query) async {
     _textController.clear();
     AuthGoogle authGoogle =
-        await AuthGoogle(fileJson: "assets/byteforbaitbot.json").build();
+        await AuthGoogle(fileJson: "assets/AiutoAgent.json").build();
     Dialogflow dialogFlow =
         Dialogflow(authGoogle: authGoogle, language: Language.english);
     AIResponse response = await dialogFlow.detectIntent(query);
