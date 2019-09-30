@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_inappbrowser/flutter_inappbrowser.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'chatpage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -11,14 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  InAppLocalhostServer localhostServer = new InAppLocalhostServer();
-
-  @override
-  void initState() {
-    super.initState();
-    localhostServer.start();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,21 +45,23 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                   height: 100.0,
                   width: 300.0,
-                  decoration: myBoxDecoration(),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
+                      color: Colors.white),
                   child: Row(
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.only(left: 65.0, right: 10.0),
                         child: Icon(
                           FontAwesomeIcons.fire,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                       Text(
                         'FIRMS MAP',
                         style: TextStyle(
                             fontSize: 20.0,
-                            color: Colors.white,
+                            color: Colors.black,
                             fontWeight: FontWeight.bold),
                       )
                     ],
@@ -80,8 +73,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.center,
+          Positioned(
+            left: 50.0,
+            right: 50.0,
+            bottom: 280.0,
             child: GestureDetector(
               onTap: () {
                 openWebPage();
@@ -89,12 +84,41 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 height: 100.0,
                 width: 300.0,
-                decoration: myBoxDecoration(),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.0),
+                    color: Colors.white),
                 child: Center(
                   child: Text(
                     'LAUNCH PORTAL',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 50.0,
+            right: 50.0,
+            bottom: 80.0,
+            child: GestureDetector(
+              onTap: () {
+                openWebPage2();
+              },
+              child: Container(
+                height: 100.0,
+                width: 300.0,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.0),
+                    color: Colors.white),
+                child: Center(
+                  child: Text(
+                    'VISUALISATION',
+                    style: TextStyle(
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 20.0,
                     ),
@@ -121,21 +145,29 @@ class _HomePageState extends State<HomePage> {
   }
 
   openWebPage() async {
-    const urlString = 'https://github.com';
+    const urlString = 'http://192.168.43.244:5000/form';
     if (await canLaunch(urlString)) {
-      await launch(urlString, forceWebView: true);
+      await launch(urlString, forceWebView: true,enableJavaScript: true);
     } else
       print('Cannot launch $urlString');
   }
 
   openMap() async {
     const url =
-        'https://firms.modaps.eosdis.nasa.gov/wms/?REQUEST=GetMap&layers=fires_viirs_24&WIDTH=1024&HEIGHT=512&BBOX=-180,-90,180,90&MAP_KEY=9af742ed0a76b34533f2b6bbd07f6ee3';
+        'https://firms.modaps.eosdis.nasa.gov/wms/?REQUEST=GetMap&layers=fires_viirs,fires_modis&TIME=2019-09-01/2019-09-25&WIDTH=1024&HEIGHT=512&colors=240+40+40,250+200+50&size=2,2&BBOX=-180,-90,180,90&MAP_KEY=1926c681134f825becf694bf7d340e18';
     if (await canLaunch(url)) {
       await launch(url, forceWebView: true);
     } else {
       print('Cannot launch $url');
     }
+  }
+
+  openWebPage2() async {
+    const urlString = 'http://192.168.43.244:5000/phone';
+    if (await canLaunch(urlString)) {
+      await launch(urlString, forceWebView: true,enableJavaScript: true);
+    } else
+      print('Cannot launch $urlString');
   }
 }
 
@@ -154,27 +186,4 @@ class BaseLayout extends StatelessWidget {
       ),
     );
   }
-}
-
-BoxDecoration myBoxDecoration() {
-  return BoxDecoration(
-    border: Border(
-      left: BorderSide(
-        color: Colors.white,
-        width: 20,
-      ),
-      top: BorderSide(
-        color: Colors.white,
-        width: 15,
-      ),
-      right: BorderSide(
-        color: Colors.white,
-        width: 20.0,
-      ),
-      bottom: BorderSide(
-        color: Colors.white,
-        width: 15,
-      ),
-    ),
-  );
 }
