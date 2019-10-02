@@ -8,3 +8,4 @@ For running ppt download application from the ppt link and use the file to open 
 
 This project is based on the early detection and validation of Forest Fires using crowdsourcing implementation.
 It has dashboards, maps, apps, ml models at the backend and even a chatbot for easy user involvement.
+the end
